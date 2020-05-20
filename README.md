@@ -18,4 +18,4 @@ getSnapshotBeforeUpdate()
 componentDidUpdate()
 
 
-Unmounting:
+Unmounting:componentWillUnmount()
