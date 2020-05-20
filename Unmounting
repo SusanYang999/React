@@ -1,0 +1,39 @@
+import React, { Children } from 'react';
+import ReactDOM from 'react-dom';
+
+
+class Box extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {show: true};
+  }
+  deleteHeader = () => {
+    this.setState({show: false});
+  }
+  render() {
+    let myheader;
+    if (this.state.show) {
+      myheader = <Child />;
+    };
+    return (
+      <div>
+      {myheader}
+      <button type="button" onClick={this.deleteHeader}>Please Try Deleting</button>
+      </div>
+    );
+  }
+}
+
+class Child extends React.Component {
+  componentWillUnmount() {
+    alert("Unmounted!");
+  }
+  render() {
+    return (
+      <h1>The header could been seen!</h1>
+    );
+  }
+}
+
+ReactDOM.render(<Box />, document.getElementById('root'));
+
