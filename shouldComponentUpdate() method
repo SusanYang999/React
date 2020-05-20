@@ -1,0 +1,26 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+class Header extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {favoritepet: "kitten"};
+  }
+  shouldComponentUpdate() {
+    return true;
+  }
+  changePetName = () => {
+    this.setState({favoritepet: "puppy"});
+  }
+  render() {
+    return (
+      <div>
+      <h1>My Favorite Pet is {this.state.favoritepet}</h1>
+      <button type="button" onClick={this.changePetName}>Change pet name</button>
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(<Header />, document.getElementById('root'));
+
