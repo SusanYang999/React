@@ -1,0 +1,27 @@
+// *Way 1-With an arrow function in the event handler*//
+class Finger extends React.Component {
+   press = (m) => {
+    alert(m);
+  }
+  render() {
+    return (
+      <button onClick={() => this.press("Click")}>Please click!</button>
+    );
+  }
+}
+
+ReactDOM.render(<Finger />, document.getElementById('root'));
+ 
+//*Way2-Bind the event handler to this*//
+class Finger extends React.Component {
+  shoot(m) {
+    alert(m);
+  }
+  render() {
+    return (
+      <button onClick={this.press.bind(this, "Click")}>Please click!</button>
+    );
+  }
+}
+
+ReactDOM.render(<Finger />, document.getElementById('root'));
